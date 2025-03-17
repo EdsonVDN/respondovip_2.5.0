@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Beta</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta name="theme-color" content="#222222" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <style>
+      /* Estilo dos Pontos Pulsantes */
+      .dot-pulse {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .dot {
+        width: 20px;
+        height: 20px;
+        background-color: #4da1d1;
+        border-radius: 50%;
+        margin: 0 5px;
+        animation: pulse 1.4s infinite ease-in-out;
+      }
+
+      .dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes pulse {
+        0%,
+        60%,
+        100% {
+          transform: scale(1);
+        }
+        30% {
+          transform: scale(1.5);
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Tela de carregamento com Pontos Pulsantes -->
+    <div id="splash-screen" class="dot-pulse">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <!-- Div onde o React será renderizado -->
+    <div id="root" class="hidden"></div>
+
+    <!-- Mensagem para usuários sem JavaScript -->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- Script para controlar os Pontos Pulsantes -->
+    <script>
+      // Simula o carregamento
+      setTimeout(() => {
+        document.getElementById("splash-screen").style.display = "none";
+        document.getElementById("root").classList.remove("hidden");
+      }, 3000); // 3 segundos de atraso
+    </script>
+  </body>
+</html>
